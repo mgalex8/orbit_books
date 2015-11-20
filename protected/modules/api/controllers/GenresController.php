@@ -32,17 +32,13 @@ class GenresController extends Controller
         {   
                 if ($genre = Genre::model()->findByPk($id)) 
                 {                
-                    $json = array(
-                        'success' => 1,
-                        'genre' => array(
-                            'id' => $genre->id,
-                            'name' => $genre->name,
-                        ),
+                    $json = array(                        
+                        'id' => $genre->id,
+                        'name' => $genre->name,                        
                     );
                 }
                 else {
-                    $json = array(
-                        'success' => 0,
+                    $json = array(                        
                         'error' => 'Not found id: '.$id,
                     );                
                 }            
@@ -65,8 +61,7 @@ class GenresController extends Controller
                     $json = $this->addedit($genre);
                 }
                 else {
-                    $json = array(
-                        'success' => 0,
+                    $json = array(                        
                         'error' => 'Not found id: '.$id,
                     );                
                 }            

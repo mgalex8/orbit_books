@@ -1,0 +1,15 @@
+<a href="#/books/add"><button class="btn btn-default">Добавить книгу</button></a>
+
+      <table class="table">          
+        <tr ng-repeat="book in books | filter:query | orderBy:orderProp"  class="thumbnail phone-listing">            
+            <td><a href="#/books/view/{{book.id}}" class="thumb"><img ng-src="{{book.image}}"></a></td>
+            <td>
+                <p><a href="#/books/view/{{book.id}}">{{book.name}}</a></p>
+                <p><strong>Год издания:</strong> {{book.publishing_year}}</p>
+                <p><strong>Автор:</strong> {{book.author}}</p>
+                <p><strong>Жанр:</strong> {{book.genre}}</p>
+            </td>          
+        </tr>
+      </table>
+
+    

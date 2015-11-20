@@ -2,21 +2,36 @@
 
 /* Controllers */
 
-var phonecatControllers = angular.module('phonecatControllers', []);
+var booksControllers = angular.module('booksControllers', []);
 
-phonecatControllers.controller('PhoneListCtrl', ['$scope', 'Phone',
-  function($scope, Phone) {
-    $scope.phones = Phone.query();
-    $scope.orderProp = 'age';
-  }]);
+booksControllers.controller('BookListCtrl', ['$scope', 'Book',
+    function($scope, Book) {
+        $scope.books = Book.query();
+        $scope.orderProp = 'id';
+    }
+]);
 
-phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Phone',
-  function($scope, $routeParams, Phone) {
-    $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
-      $scope.mainImageUrl = phone.images[0];
-    });
+booksControllers.controller('BookViewCtrl', ['$scope', '$routeParams', 'Book',
+    function($scope, $routeParams, Book) {
+        $scope.book = Book.get({bookId: $routeParams.bookId}, function(book) {});    
+    }
+]);
 
-    $scope.setImage = function(imageUrl) {
-      $scope.mainImageUrl = imageUrl;
-    };
-  }]);
+
+booksControllers.controller('BookAddCtrl', ['$scope', '$http', 'Book', 'Genres',
+    function ($scope, $http, Book, Genres) {
+        $scope.book = {};
+        $scope.genres = Genres.query();        
+
+        $scope.save = function (book, saveForm){
+            if (saveForm.$valid){
+
+                $http.post("/api/books/add", book).success(function (resp) {
+                    if (resp.error.length == 0) {
+                        $location.path('/books'); 
+                    }
+                });
+            }
+        };
+    }            
+]);

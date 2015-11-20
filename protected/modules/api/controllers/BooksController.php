@@ -24,18 +24,44 @@ class BooksController extends Controller
 
                 $items = array();
                 foreach ($books as $book) {
+                    $bookImageUrl = $book->image->url !== null ? $book->image->url : '/images/no-image.jpg';
+                    
                     $item = array(
                         'id' => $book->id,
                         'name' => $book->name,
                         'author' => $book->author,
                         'publishing_year' => $book->publishing_year,
                         'description' => $book->description,
-                        'genre_id' => $book->genre_id,
-                        'image' => $book->image->url,
+                        'genre' => $book->genre->name,
+                        'image' => $bookImageUrl,
                     );
                     $items[] = $item;
                 }
                 echo json_encode($items);
+        }
+        
+        
+        public function actionView($id) 
+        {   
+                if ($book = Genre::model()->findByPk($id)) 
+                {           
+                    $bookImageUrl = $book->image->url !== null ? $book->image->url : '/images/no-image.jpg';
+                    $json = array(                        
+                        'id' => $book->id,
+                        'name' => $book->name,
+                        'author' => $book->author,
+                        'publishing_year' => $book->publishing_year,
+                        'description' => $book->description,
+                        'genre' => $book->genre->name,
+                        'image' => $bookImageUrl,                   
+                    );
+                }
+                else {
+                    $json = array(                        
+                        'error' => 'Not found id: '.$id,
+                    );                
+                }            
+                echo json_encode($json);
         }
         
         

@@ -1,0 +1,46 @@
+<form name="saveForm" class="form-horizontal" enctype="multipart/form-data">
+  <fieldset>
+    <div class="control-group">
+      <div class="controls">
+        <h3>{{["Добавление","Изменение"][(book.id>0)+0]}} записи</h3>
+      </div>
+    </div>    
+    <div class="control-group" ng-class="{error: saveForm.name.$invalid}">
+      <label class="control-label" for="title">Заголовок</label>
+      <div class="controls">
+        <input name="title" ng-model="book.name" required>
+      </div>
+    </div>
+    <div class="control-group" ng-class="{error: saveForm.author.$invalid}">
+      <label class="control-label" for="author">Автор</label>
+      <div class="controls">
+        <input name="author" ng-model="book.author" required>
+      </div>
+    </div>
+    <div class="control-group" ng-class="{error: saveForm.publishing_year.$invalid}">
+      <label class="control-label" for="answerer">Кому задан</label>
+      <div class="controls">
+        <select name="answerer" ng-model="book.publishing_year" required
+          ng-options="key as value for (key, value) in answerers"></select>
+      </div>
+    </div>
+    <div class="control-group" ng-class="{error: saveForm.genre_id.$invalid}">
+      <label class="control-label" for="category">Жанр</label>
+      <div class="controls">
+        <select name="category" ng-model="book.genre_id" required
+          ng-options="key as value for (key, value) in genres"></select>
+      </div>
+    </div>
+    <div class="control-group" ng-class="{error: saveForm.description.$invalid}">
+      <label class="control-label" for="text">Описание</label>
+      <div class="controls">
+        <textarea id="text" ng-model="book.description" required></textarea>
+      </div>
+    </div>
+    
+    <div class="form-actions">
+      <input type="button" ng-disabled="saveForm.$invalid||saveForm.$pristine" href="#/list" ng-click="save()" class="btn btn-success" value="Сохранить">
+      <a href="#/books/" class="btn">Отмена</a>
+    </div>
+  </fieldset>
+</form>
