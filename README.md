@@ -2,6 +2,9 @@
 
 ##ANgularJS and Yii Framework
 
+##DB
+Дамп базы: /scheme/orbit_books.sql
+
 ## CONFIG
 ###Файлы настройки:
 /protected/config/main.php
