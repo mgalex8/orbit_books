@@ -43,7 +43,7 @@ class BooksController extends Controller
         
         public function actionView($id) 
         {   
-                if ($book = Genre::model()->findByPk($id)) 
+                if ($book = Book::model()->findByPk($id)) 
                 {           
                     $bookImageUrl = $book->image->url !== null ? $book->image->url : '/images/no-image.jpg';
                     $json = array(                        
