@@ -1,0 +1,1032 @@
+2015/09/13 17:28:19 [error] [exception.CException] exception 'CException' with message 'Property "ProcessController.categories" is not defined.' in Z:\home\process\framework\base\CComponent.php:130
+Stack trace:
+#0 Z:\home\process\www\protected\views\process\list.php(8): CComponent->__get('categories')
+#1 Z:\home\process\framework\web\CBaseController.php(126): require('Z:\home\process...')
+#2 Z:\home\process\framework\web\CBaseController.php(95): CBaseController->renderInternal('Z:\home\process...', Array, true)
+#3 Z:\home\process\framework\web\CController.php(869): CBaseController->renderFile('Z:\home\process...', Array, true)
+#4 Z:\home\process\framework\web\CController.php(782): CController->renderPartial('list', Array, true)
+#5 Z:\home\process\www\protected\controllers\ProcessController.php(54): CController->render('list', Array)
+#6 Z:\home\process\framework\web\actions\CInlineAction.php(49): ProcessController->actionIndex()
+#7 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 Z:\home\process\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#14 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#16 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('process/index')
+#17 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 Z:\home\process\www\index.php(11): CApplication->run()
+#19 {main}
+REQUEST_URI=/process/
+HTTP_REFERER=http://process/processes/
+---
+2015/09/13 18:10:21 [error] [php] Invalid argument supplied for foreach() (Z:\home\process\www\protected\views\process\list.php:18)
+Stack trace:
+#0 Z:\home\process\framework\web\CController.php(869): ProcessController->renderFile()
+#1 Z:\home\process\framework\web\CController.php(782): ProcessController->renderPartial()
+#2 Z:\home\process\www\protected\controllers\ProcessController.php(64): ProcessController->render()
+#3 Z:\home\process\framework\web\actions\CInlineAction.php(49): ProcessController->actionIndex()
+#4 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 Z:\home\process\framework\web\filters\CFilterChain.php(133): ProcessController->runAction()
+#6 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 Z:\home\process\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 Z:\home\process\framework\web\filters\CInlineFilter.php(58): ProcessController->filterAccessControl()
+#9 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#11 Z:\home\process\framework\web\CController.php(265): ProcessController->runActionWithFilters()
+#12 Z:\home\process\framework\web\CWebApplication.php(282): ProcessController->run()
+#13 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 Z:\home\process\www\index.php(11): CWebApplication->run()
+REQUEST_URI=/process/
+2015/09/13 18:12:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "edit".' in Z:\home\process\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\process\framework\web\CController.php(270): CController->missingAction('edit')
+#1 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('edit')
+#2 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('process/edit')
+#3 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 Z:\home\process\www\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/process/edit
+HTTP_REFERER=http://process/process/
+---
+2015/09/13 18:12:35 [error] [php] range() expects at most 3 parameters, 4 given (Z:\home\process\www\protected\models\Process.php:44)
+Stack trace:
+#0 Z:\home\process\framework\base\CModel.php(260): Process->createValidators()
+#1 Z:\home\process\framework\base\CModel.php(303): Process->getValidators()
+#2 Z:\home\process\framework\web\helpers\CHtml.php(1237): Process->isAttributeRequired()
+#3 Z:\home\process\framework\web\widgets\CActiveForm.php(562): activeLabelEx()
+#4 Z:\home\process\www\protected\views\process\add.php(15): CActiveForm->labelEx()
+#5 Z:\home\process\framework\web\CBaseController.php(126): require()
+#6 Z:\home\process\framework\web\CBaseController.php(95): ProcessController->renderInternal()
+#7 Z:\home\process\framework\web\CController.php(869): ProcessController->renderFile()
+#8 Z:\home\process\framework\web\CController.php(782): ProcessController->renderPartial()
+#9 Z:\home\process\www\protected\controllers\ProcessController.php(79): ProcessController->render()
+#10 Z:\home\process\framework\web\actions\CInlineAction.php(49): ProcessController->actionAdd()
+#11 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams()
+#12 Z:\home\process\framework\web\filters\CFilterChain.php(133): ProcessController->runAction()
+#13 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 Z:\home\process\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#15 Z:\home\process\framework\web\filters\CInlineFilter.php(58): ProcessController->filterAccessControl()
+#16 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#17 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#18 Z:\home\process\framework\web\CController.php(265): ProcessController->runActionWithFilters()
+#19 Z:\home\process\framework\web\CWebApplication.php(282): ProcessController->run()
+#20 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 Z:\home\process\www\index.php(11): CWebApplication->run()
+REQUEST_URI=/process/add/
+2015/09/13 18:21:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "processes/index".' in Z:\home\process\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('processes/index')
+#1 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\process\www\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/processes/
+HTTP_REFERER=http://process/process/add/
+---
+2015/09/13 19:07:24 [error] [php] date() expects parameter 2 to be long, string given (Z:\home\process\www\protected\views\process\list.php:23)
+Stack trace:
+#0 Z:\home\process\framework\web\CBaseController.php(95): ProcessController->renderInternal()
+#1 Z:\home\process\framework\web\CController.php(869): ProcessController->renderFile()
+#2 Z:\home\process\framework\web\CController.php(782): ProcessController->renderPartial()
+#3 Z:\home\process\www\protected\controllers\ProcessController.php(85): ProcessController->render()
+#4 Z:\home\process\framework\web\actions\CInlineAction.php(49): ProcessController->actionIndex()
+#5 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 Z:\home\process\framework\web\filters\CFilterChain.php(133): ProcessController->runAction()
+#7 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 Z:\home\process\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#9 Z:\home\process\framework\web\filters\CInlineFilter.php(58): ProcessController->filterAccessControl()
+#10 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#11 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#12 Z:\home\process\framework\web\CController.php(265): ProcessController->runActionWithFilters()
+#13 Z:\home\process\framework\web\CWebApplication.php(282): ProcessController->run()
+#14 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#15 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 Z:\home\process\www\index.php(11): CWebApplication->run()
+REQUEST_URI=/process/
+2015/09/13 20:01:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "users/index".' in Z:\home\process\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#1 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\process\www\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/process/
+---
+2015/09/13 20:04:05 [error] [exception.CException] exception 'CException' with message 'Property "LoginForm.Запомнить меня" is not defined.' in Z:\home\process\framework\base\CComponent.php:130
+Stack trace:
+#0 Z:\home\process\framework\web\helpers\CHtml.php(2255): CComponent->__get('???????????????...')
+#1 Z:\home\process\framework\web\helpers\CHtml.php(1506): CHtml::resolveValue(Object(LoginForm), '???????????????...')
+#2 Z:\home\process\framework\web\widgets\CActiveForm.php(747): CHtml::activeCheckBox(Object(LoginForm), '???????????????...', Array)
+#3 Z:\home\process\www\protected\views\index\index.php(30): CActiveForm->checkBox(Object(LoginForm), '???????????????...')
+#4 Z:\home\process\framework\web\CBaseController.php(126): require('Z:\home\process...')
+#5 Z:\home\process\framework\web\CBaseController.php(95): CBaseController->renderInternal('Z:\home\process...', Array, true)
+#6 Z:\home\process\framework\web\CController.php(869): CBaseController->renderFile('Z:\home\process...', Array, true)
+#7 Z:\home\process\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#8 Z:\home\process\www\protected\controllers\IndexController.php(32): CController->render('index', Array)
+#9 Z:\home\process\framework\web\actions\CInlineAction.php(49): IndexController->actionIndex()
+#10 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 Z:\home\process\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('')
+#14 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#15 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 Z:\home\process\www\index.php(11): CApplication->run()
+#17 {main}
+REQUEST_URI=/
+HTTP_REFERER=http://process/profile/registration/
+---
+2015/09/13 20:15:25 [error] [exception.CException] exception 'CException' with message 'Property "Process.limit" is not defined.' in Z:\home\process\framework\base\CComponent.php:173
+Stack trace:
+#0 Z:\home\process\framework\db\ar\CActiveRecord.php(159): CComponent->__set('limit', '00:02:36')
+#1 Z:\home\process\www\protected\controllers\ProcessController.php(67): CActiveRecord->__set('limit', '00:02:36')
+#2 Z:\home\process\framework\web\actions\CInlineAction.php(49): ProcessController->actionIndex()
+#3 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 Z:\home\process\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#10 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#12 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('process/index')
+#13 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#14 Z:\home\process\www\index.php(11): CApplication->run()
+#15 {main}
+REQUEST_URI=/process/
+HTTP_REFERER=http://process/profile/
+---
+2015/09/13 20:50:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "processes/index".' in Z:\home\process\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('processes/index')
+#1 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\process\www\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/processes/
+HTTP_REFERER=http://process/process/add/
+---
+2015/09/13 20:50:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "processes/index".' in Z:\home\process\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('processes/index')
+#1 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\process\www\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/processes/
+HTTP_REFERER=http://process/process/add/
+---
+2015/09/13 21:03:39 [error] [exception.CException] exception 'CException' with message 'Property "User.updated_at" is not defined.' in Z:\home\process\framework\base\CComponent.php:173
+Stack trace:
+#0 Z:\home\process\framework\db\ar\CActiveRecord.php(159): CComponent->__set('updated_at', 1442163819)
+#1 Z:\home\process\www\protected\models\User.php(89): CActiveRecord->__set('updated_at', 1442163819)
+#2 Z:\home\process\framework\db\ar\CActiveRecord.php(1017): User->beforeSave()
+#3 Z:\home\process\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#4 Z:\home\process\www\protected\models\forms\RegistrationForm.php(60): CActiveRecord->save()
+#5 Z:\home\process\www\protected\controllers\ProfileController.php(52): RegistrationForm->registration()
+#6 Z:\home\process\framework\web\actions\CInlineAction.php(49): ProfileController->actionRegistration()
+#7 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 Z:\home\process\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#14 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('registration')
+#16 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('profile/registr...')
+#17 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 Z:\home\process\www\index.php(11): CApplication->run()
+#19 {main}
+REQUEST_URI=/profile/registration/
+HTTP_REFERER=http://process/profile/registration/
+---
+2015/09/13 22:09:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "edit".' in Z:\home\process\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\process\framework\web\CController.php(270): CController->missingAction('edit')
+#1 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('edit')
+#2 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('process/edit')
+#3 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 Z:\home\process\www\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/process/edit/3/
+HTTP_REFERER=http://process/process/
+---
+2015/09/13 22:44:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "users/index".' in Z:\home\process\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#1 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\process\www\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/process/
+---
+2015/09/13 22:59:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "users/index".' in Z:\home\process\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#1 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\process\www\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/users/
+---
+2015/09/13 22:59:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "users/index".' in Z:\home\process\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#1 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\process\www\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/users/
+---
+2015/09/13 22:59:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "users/index".' in Z:\home\process\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#1 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\process\www\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/users/
+---
+2015/09/13 22:59:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'. The SQL statement executed was: SELECT username, email, group_id FROM `processes` `t` ORDER BY active DESC, created_at DESC LIMIT 5.
+2015/09/13 22:59:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'. The SQL statement executed was: SELECT username, email, group_id FROM `processes` `t` ORDER BY active DESC, created_at DESC LIMIT 5' in Z:\home\process\framework\db\CDbCommand.php:541
+Stack trace:
+#0 Z:\home\process\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 Z:\home\process\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryAll()
+#2 Z:\home\process\framework\db\ar\CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#3 Z:\home\process\www\protected\controllers\UsersController.php(38): CActiveRecord->findAll(Object(CDbCriteria))
+#4 Z:\home\process\framework\web\actions\CInlineAction.php(49): UsersController->actionIndex()
+#5 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 Z:\home\process\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#12 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#14 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#15 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 Z:\home\process\www\index.php(11): CApplication->run()
+#17 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/users/
+---
+2015/09/13 23:00:22 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'. The SQL statement executed was: SELECT username, email, group_id FROM `processes` `t` ORDER BY active DESC, created_at DESC LIMIT 5.
+2015/09/13 23:00:22 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'. The SQL statement executed was: SELECT username, email, group_id FROM `processes` `t` ORDER BY active DESC, created_at DESC LIMIT 5' in Z:\home\process\framework\db\CDbCommand.php:541
+Stack trace:
+#0 Z:\home\process\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 Z:\home\process\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryAll()
+#2 Z:\home\process\framework\db\ar\CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#3 Z:\home\process\www\protected\controllers\UsersController.php(38): CActiveRecord->findAll(Object(CDbCriteria))
+#4 Z:\home\process\framework\web\actions\CInlineAction.php(49): UsersController->actionIndex()
+#5 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 Z:\home\process\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#12 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#14 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#15 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 Z:\home\process\www\index.php(11): CApplication->run()
+#17 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/users/
+---
+2015/09/13 23:01:34 [error] [php] Invalid argument supplied for foreach() (Z:\home\process\www\protected\views\users\list.php:18)
+Stack trace:
+#0 Z:\home\process\framework\web\CController.php(869): UsersController->renderFile()
+#1 Z:\home\process\framework\web\CController.php(782): UsersController->renderPartial()
+#2 Z:\home\process\www\protected\controllers\UsersController.php(43): UsersController->render()
+#3 Z:\home\process\framework\web\actions\CInlineAction.php(49): UsersController->actionIndex()
+#4 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 Z:\home\process\framework\web\filters\CFilterChain.php(133): UsersController->runAction()
+#6 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 Z:\home\process\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 Z:\home\process\framework\web\filters\CInlineFilter.php(58): UsersController->filterAccessControl()
+#9 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#11 Z:\home\process\framework\web\CController.php(265): UsersController->runActionWithFilters()
+#12 Z:\home\process\framework\web\CWebApplication.php(282): UsersController->run()
+#13 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 Z:\home\process\www\index.php(11): CWebApplication->run()
+REQUEST_URI=/users/
+2015/09/13 23:01:48 [error] [exception.CException] exception 'CException' with message 'Property "User.name" is not defined.' in Z:\home\process\framework\base\CComponent.php:130
+Stack trace:
+#0 Z:\home\process\framework\db\ar\CActiveRecord.php(143): CComponent->__get('name')
+#1 Z:\home\process\www\protected\views\users\list.php(22): CActiveRecord->__get('name')
+#2 Z:\home\process\framework\web\CBaseController.php(126): require('Z:\home\process...')
+#3 Z:\home\process\framework\web\CBaseController.php(95): CBaseController->renderInternal('Z:\home\process...', Array, true)
+#4 Z:\home\process\framework\web\CController.php(869): CBaseController->renderFile('Z:\home\process...', Array, true)
+#5 Z:\home\process\framework\web\CController.php(782): CController->renderPartial('list', Array, true)
+#6 Z:\home\process\www\protected\controllers\UsersController.php(43): CController->render('list', Array)
+#7 Z:\home\process\framework\web\actions\CInlineAction.php(49): UsersController->actionIndex()
+#8 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 Z:\home\process\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#15 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#17 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#18 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#19 Z:\home\process\www\index.php(11): CApplication->run()
+#20 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/users/
+---
+2015/09/13 23:06:33 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in Z:\home\process\framework\web\CController.php:336
+Stack trace:
+#0 Z:\home\process\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 Z:\home\process\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#7 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#9 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('process/index')
+#10 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 Z:\home\process\www\index.php(11): CApplication->run()
+#12 {main}
+REQUEST_URI=/process//
+HTTP_REFERER=http://process/users/
+---
+2015/09/13 23:07:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in Z:\home\process\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\process\framework\web\CController.php(270): CController->missingAction('1')
+#1 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('1')
+#2 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('process/1')
+#3 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 Z:\home\process\www\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/process/1/
+HTTP_REFERER=http://process/users/
+---
+2015/09/13 23:09:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "1".' in Z:\home\process\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\process\framework\web\CController.php(270): CController->missingAction('1')
+#1 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('1')
+#2 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('process/1')
+#3 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 Z:\home\process\www\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/process/1/
+HTTP_REFERER=http://process/users/
+---
+2015/09/13 23:09:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Пользователь не найден' in Z:\home\process\www\protected\controllers\ProcessController.php:46
+Stack trace:
+#0 Z:\home\process\framework\web\actions\CInlineAction.php(49): ProcessController->actionIndex()
+#1 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 Z:\home\process\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#6 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#7 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#8 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#10 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('process/index')
+#11 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 Z:\home\process\www\index.php(11): CApplication->run()
+#13 {main}
+REQUEST_URI=/process/?userid=1/
+HTTP_REFERER=http://process/users/
+---
+2015/09/13 23:09:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Пользователь не найден' in Z:\home\process\www\protected\controllers\ProcessController.php:46
+Stack trace:
+#0 Z:\home\process\framework\web\actions\CInlineAction.php(49): ProcessController->actionIndex()
+#1 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 Z:\home\process\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#6 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#7 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#8 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#10 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('process/index')
+#11 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 Z:\home\process\www\index.php(11): CApplication->run()
+#13 {main}
+REQUEST_URI=/process/?userid=1
+HTTP_REFERER=http://process/users/
+---
+2015/09/13 23:10:30 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT COUNT(*) FROM `processes` `t` WHERE creaby=:User. Bound with :User=='1'.
+2015/09/13 23:10:30 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT COUNT(*) FROM `processes` `t` WHERE creaby=:User. Bound with :User=='1'' in Z:\home\process\framework\db\CDbCommand.php:541
+Stack trace:
+#0 Z:\home\process\framework\db\CDbCommand.php(432): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 Z:\home\process\framework\db\ar\CActiveRecord.php(1546): CDbCommand->queryScalar()
+#2 Z:\home\process\www\protected\controllers\ProcessController.php(59): CActiveRecord->count(Object(CDbCriteria))
+#3 Z:\home\process\framework\web\actions\CInlineAction.php(49): ProcessController->actionIndex()
+#4 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 Z:\home\process\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#11 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#13 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('process/index')
+#14 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 Z:\home\process\www\index.php(11): CApplication->run()
+#16 {main}
+REQUEST_URI=/process/?userid=1
+HTTP_REFERER=http://process/users/
+---
+2015/09/13 23:10:52 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT COUNT(*) FROM `processes` `t` WHERE creaby=:User. Bound with :User=='1'.
+2015/09/13 23:10:52 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT COUNT(*) FROM `processes` `t` WHERE creaby=:User. Bound with :User=='1'' in Z:\home\process\framework\db\CDbCommand.php:541
+Stack trace:
+#0 Z:\home\process\framework\db\CDbCommand.php(432): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 Z:\home\process\framework\db\ar\CActiveRecord.php(1546): CDbCommand->queryScalar()
+#2 Z:\home\process\www\protected\controllers\ProcessController.php(58): CActiveRecord->count(Object(CDbCriteria))
+#3 Z:\home\process\framework\web\actions\CInlineAction.php(49): ProcessController->actionIndex()
+#4 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 Z:\home\process\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#11 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#13 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('process/index')
+#14 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 Z:\home\process\www\index.php(11): CApplication->run()
+#16 {main}
+REQUEST_URI=/process/?userid=1
+HTTP_REFERER=http://process/users/
+---
+2015/09/13 23:16:36 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in Z:\home\process\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 Z:\home\process\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 Z:\home\process\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#6 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('add')
+#8 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/add')
+#9 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 Z:\home\process\www\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/add/
+HTTP_REFERER=http://process/users/
+---
+2015/09/13 23:16:51 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in Z:\home\process\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 Z:\home\process\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 Z:\home\process\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#6 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#8 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#9 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 Z:\home\process\www\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/users/
+---
+2015/09/13 23:26:40 [error] [php] include(PhpAuthManager.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (Z:\home\process\framework\YiiBase.php:421)
+Stack trace:
+#0 Z:\home\process\framework\YiiBase.php(196): import()
+#1 Z:\home\process\framework\base\CModule.php(386): createComponent()
+#2 Z:\home\process\framework\web\CWebApplication.php(185): CWebApplication->getComponent()
+#3 Z:\home\process\framework\web\auth\CWebUser.php(806): CWebApplication->getAuthManager()
+#4 Z:\home\process\framework\web\auth\CAccessControlFilter.php(338): CWebUser->checkAccess()
+#5 Z:\home\process\framework\web\auth\CAccessControlFilter.php(276): CAccessRule->isRoleMatched()
+#6 Z:\home\process\framework\web\auth\CAccessControlFilter.php(135): CAccessRule->isUserAllowed()
+#7 Z:\home\process\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter()
+#8 Z:\home\process\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#9 Z:\home\process\framework\web\filters\CInlineFilter.php(58): UsersController->filterAccessControl()
+#10 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#11 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#12 Z:\home\process\framework\web\CController.php(265): UsersController->runActionWithFilters()
+#13 Z:\home\process\framework\web\CWebApplication.php(282): UsersController->run()
+#14 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#15 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 Z:\home\process\www\index.php(11): CWebApplication->run()
+REQUEST_URI=/users/
+2015/09/13 23:32:40 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in Z:\home\process\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 Z:\home\process\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 Z:\home\process\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#6 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#8 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#9 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 Z:\home\process\www\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/profile/
+---
+2015/09/13 23:40:21 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in Z:\home\process\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 Z:\home\process\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 Z:\home\process\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#6 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#8 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#9 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 Z:\home\process\www\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/profile/
+---
+2015/09/13 23:47:13 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in Z:\home\process\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 Z:\home\process\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 Z:\home\process\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#6 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#8 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#9 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 Z:\home\process\www\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/profile/
+---
+2015/09/13 23:47:57 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in Z:\home\process\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 Z:\home\process\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 Z:\home\process\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#6 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#8 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#9 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 Z:\home\process\www\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/profile/
+---
+2015/09/13 23:48:09 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in Z:\home\process\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 Z:\home\process\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 Z:\home\process\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#6 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#8 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#9 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 Z:\home\process\www\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/profile/
+---
+2015/09/13 23:48:10 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in Z:\home\process\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 Z:\home\process\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 Z:\home\process\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#6 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#8 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#9 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 Z:\home\process\www\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/profile/
+---
+2015/09/13 23:48:15 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in Z:\home\process\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 Z:\home\process\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 Z:\home\process\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#6 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#8 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#9 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 Z:\home\process\www\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/profile/
+---
+2015/09/13 23:48:32 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in Z:\home\process\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 Z:\home\process\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 Z:\home\process\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#6 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#8 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#9 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 Z:\home\process\www\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/profile/
+---
+2015/09/13 23:48:33 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in Z:\home\process\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 Z:\home\process\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 Z:\home\process\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#6 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#8 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#9 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 Z:\home\process\www\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/profile/
+---
+2015/09/13 23:48:34 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in Z:\home\process\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 Z:\home\process\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 Z:\home\process\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#6 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#8 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#9 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 Z:\home\process\www\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/profile/
+---
+2015/09/13 23:48:35 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in Z:\home\process\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 Z:\home\process\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 Z:\home\process\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#6 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#8 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#9 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 Z:\home\process\www\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/profile/
+---
+2015/09/13 23:48:56 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in Z:\home\process\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 Z:\home\process\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 Z:\home\process\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#6 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#8 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#9 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 Z:\home\process\www\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/process/
+---
+2015/09/13 23:48:59 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in Z:\home\process\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 Z:\home\process\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 Z:\home\process\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#6 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#8 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#9 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 Z:\home\process\www\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/process/
+---
+2015/09/13 23:49:59 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in Z:\home\process\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 Z:\home\process\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 Z:\home\process\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#6 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('index')
+#8 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/index')
+#9 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 Z:\home\process\www\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/users/
+HTTP_REFERER=http://process/profile/
+---
+2015/09/14 00:17:05 [warning] [application] Failed to set unsafe attribute "group" of "NewUserForm".
+2015/09/14 00:17:05 [error] [exception.CException] exception 'CException' with message 'Property "NewUserForm.role" is not defined.' in Z:\home\process\framework\base\CComponent.php:130
+Stack trace:
+#0 Z:\home\process\framework\validators\CRequiredValidator.php(51): CComponent->__get('role')
+#1 Z:\home\process\framework\validators\CValidator.php(213): CRequiredValidator->validateAttribute(Object(NewUserForm), 'role')
+#2 Z:\home\process\framework\base\CModel.php(159): CValidator->validate(Object(NewUserForm), NULL)
+#3 Z:\home\process\www\protected\controllers\UsersController.php(48): CModel->validate()
+#4 Z:\home\process\framework\web\actions\CInlineAction.php(49): UsersController->actionAdd()
+#5 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 Z:\home\process\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#12 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('add')
+#14 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/add')
+#15 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 Z:\home\process\www\index.php(11): CApplication->run()
+#17 {main}
+REQUEST_URI=/users/add/
+HTTP_REFERER=http://process/users/add/
+---
+2015/09/14 00:17:37 [error] [exception.CException] exception 'CException' with message 'Property "CRangeValidator.0" is not defined.' in Z:\home\process\framework\base\CComponent.php:173
+Stack trace:
+#0 Z:\home\process\framework\validators\CValidator.php(189): CComponent->__set('0', Array)
+#1 Z:\home\process\framework\base\CModel.php(286): CValidator::createValidator('in', Object(User), 'role', Array)
+#2 Z:\home\process\framework\base\CModel.php(260): CModel->createValidators()
+#3 Z:\home\process\framework\base\CModel.php(158): CModel->getValidators()
+#4 Z:\home\process\framework\db\ar\CActiveRecord.php(794): CModel->validate(NULL)
+#5 Z:\home\process\www\protected\models\forms\NewUserForm.php(88): CActiveRecord->save()
+#6 Z:\home\process\www\protected\controllers\UsersController.php(50): NewUserForm->saveUser()
+#7 Z:\home\process\framework\web\actions\CInlineAction.php(49): UsersController->actionAdd()
+#8 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 Z:\home\process\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#15 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('add')
+#17 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/add')
+#18 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#19 Z:\home\process\www\index.php(11): CApplication->run()
+#20 {main}
+REQUEST_URI=/users/add/
+HTTP_REFERER=http://process/users/add/
+---
+2015/09/14 00:26:39 [error] [exception.CException] exception 'CException' with message 'Property "NewUserForm." is not defined.' in Z:\home\process\framework\base\CComponent.php:173
+Stack trace:
+#0 Z:\home\process\www\protected\models\forms\NewUserForm.php(108): CComponent->__set('', 'text@test.ru')
+#1 Z:\home\process\www\protected\controllers\UsersController.php(65): NewUserForm->loadAttributes('6')
+#2 [internal function]: UsersController->actionEdit('6')
+#3 Z:\home\process\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#4 Z:\home\process\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#5 Z:\home\process\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 Z:\home\process\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 Z:\home\process\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 Z:\home\process\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 Z:\home\process\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 Z:\home\process\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 Z:\home\process\framework\web\CController.php(291): CFilterChain->run()
+#12 Z:\home\process\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 Z:\home\process\framework\web\CWebApplication.php(282): CController->run('edit')
+#14 Z:\home\process\framework\web\CWebApplication.php(141): CWebApplication->runController('users/edit')
+#15 Z:\home\process\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 Z:\home\process\www\index.php(11): CApplication->run()
+#17 {main}
+REQUEST_URI=/users/edit/6/
+HTTP_REFERER=http://process/users/
+---
+2015/11/20 02:08:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\orbit\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\orbit\www\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\orbit\www\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\orbit\www\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://orbit/
+---
+2015/11/20 04:59:49 [error] [exception.CException] exception 'CException' with message 'Property "IndexController.lineTitle" is not defined.' in Z:\home\orbit\www\framework\base\CComponent.php:173
+Stack trace:
+#0 Z:\home\orbit\www\protected\views\index\index.php(3): CComponent->__set('lineTitle', '???????????? ??...')
+#1 Z:\home\orbit\www\framework\web\CBaseController.php(126): require('Z:\home\orbit\w...')
+#2 Z:\home\orbit\www\framework\web\CBaseController.php(95): CBaseController->renderInternal('Z:\home\orbit\w...', Array, true)
+#3 Z:\home\orbit\www\framework\web\CController.php(869): CBaseController->renderFile('Z:\home\orbit\w...', Array, true)
+#4 Z:\home\orbit\www\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#5 Z:\home\orbit\www\protected\controllers\IndexController.php(32): CController->render('index', Array)
+#6 Z:\home\orbit\www\framework\web\actions\CInlineAction.php(49): IndexController->actionIndex()
+#7 Z:\home\orbit\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 Z:\home\orbit\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 Z:\home\orbit\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 Z:\home\orbit\www\framework\web\CWebApplication.php(282): CController->run('')
+#11 Z:\home\orbit\www\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#12 Z:\home\orbit\www\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 Z:\home\orbit\www\index.php(11): CApplication->run()
+#14 {main}
+REQUEST_URI=/
+---
+2015/11/20 05:02:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in Z:\home\orbit\www\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\orbit\www\framework\web\CController.php(270): CController->missingAction('index')
+#1 Z:\home\orbit\www\framework\web\CWebApplication.php(282): CController->run('index')
+#2 Z:\home\orbit\www\framework\web\CWebApplication.php(141): CWebApplication->runController('genres/index')
+#3 Z:\home\orbit\www\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 Z:\home\orbit\www\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/genres/
+---
+2015/11/20 05:02:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in Z:\home\orbit\www\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\orbit\www\framework\web\CController.php(270): CController->missingAction('index')
+#1 Z:\home\orbit\www\framework\web\CWebApplication.php(282): CController->run('index')
+#2 Z:\home\orbit\www\framework\web\CWebApplication.php(141): CWebApplication->runController('genres/index')
+#3 Z:\home\orbit\www\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 Z:\home\orbit\www\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/genres/
+---
+2015/11/20 05:03:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in Z:\home\orbit\www\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\orbit\www\framework\web\CController.php(270): CController->missingAction('index')
+#1 Z:\home\orbit\www\framework\web\CWebApplication.php(282): CController->run('index')
+#2 Z:\home\orbit\www\framework\web\CWebApplication.php(141): CWebApplication->runController('genres/index')
+#3 Z:\home\orbit\www\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 Z:\home\orbit\www\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/genres/
+---
+2015/11/20 05:05:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in Z:\home\orbit\www\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\orbit\www\framework\web\CController.php(270): CController->missingAction('index')
+#1 Z:\home\orbit\www\framework\web\CWebApplication.php(282): CController->run('index')
+#2 Z:\home\orbit\www\framework\web\CWebApplication.php(141): CWebApplication->runController('genres/index')
+#3 Z:\home\orbit\www\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 Z:\home\orbit\www\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/genres/
+---
+2015/11/20 05:15:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in Z:\home\orbit\www\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\orbit\www\framework\web\CController.php(270): CController->missingAction('index')
+#1 Z:\home\orbit\www\framework\web\CWebApplication.php(282): CController->run('index')
+#2 Z:\home\orbit\www\framework\web\CWebApplication.php(141): CWebApplication->runController('genres/index')
+#3 Z:\home\orbit\www\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 Z:\home\orbit\www\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/genres/
+---
+2015/11/20 05:16:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'field list'. The SQL statement executed was: SELECT id, name FROM `genre` `t` ORDER BY id ASC.
+2015/11/20 05:16:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'field list'. The SQL statement executed was: SELECT id, name FROM `genre` `t` ORDER BY id ASC' in Z:\home\orbit\www\framework\db\CDbCommand.php:541
+Stack trace:
+#0 Z:\home\orbit\www\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 Z:\home\orbit\www\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryAll()
+#2 Z:\home\orbit\www\framework\db\ar\CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#3 Z:\home\orbit\www\protected\controllers\GenresController.php(12): CActiveRecord->findAll(Object(CDbCriteria))
+#4 Z:\home\orbit\www\framework\web\actions\CInlineAction.php(49): GenresController->actionList()
+#5 Z:\home\orbit\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 Z:\home\orbit\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 Z:\home\orbit\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 Z:\home\orbit\www\framework\web\CWebApplication.php(282): CController->run('list')
+#9 Z:\home\orbit\www\framework\web\CWebApplication.php(141): CWebApplication->runController('genres/list')
+#10 Z:\home\orbit\www\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 Z:\home\orbit\www\index.php(11): CApplication->run()
+#12 {main}
+REQUEST_URI=/genres/list
+---
+2015/11/20 05:19:19 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orbit_books.genre' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `genre`.
+2015/11/20 05:19:19 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{genre}}" for active record class "Genre" cannot be found in the database.' in Z:\home\orbit\www\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 Z:\home\orbit\www\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(Genre))
+#1 Z:\home\orbit\www\protected\models\Genre.php(13): CActiveRecord::model('Genre')
+#2 Z:\home\orbit\www\protected\controllers\GenresController.php(12): Genre::model()
+#3 Z:\home\orbit\www\framework\web\actions\CInlineAction.php(49): GenresController->actionList()
+#4 Z:\home\orbit\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 Z:\home\orbit\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 Z:\home\orbit\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 Z:\home\orbit\www\framework\web\CWebApplication.php(282): CController->run('list')
+#8 Z:\home\orbit\www\framework\web\CWebApplication.php(141): CWebApplication->runController('genres/list')
+#9 Z:\home\orbit\www\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 Z:\home\orbit\www\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/genres/list
+---
+2015/11/20 05:21:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in Z:\home\orbit\www\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\orbit\www\framework\web\CController.php(270): CController->missingAction('index')
+#1 Z:\home\orbit\www\framework\web\CWebApplication.php(282): CController->run('index')
+#2 Z:\home\orbit\www\framework\web\CWebApplication.php(141): CWebApplication->runController('books/index')
+#3 Z:\home\orbit\www\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 Z:\home\orbit\www\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/books/
+---
+2015/11/20 05:21:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'publiching_year' in 'field list'. The SQL statement executed was: SELECT id, name, author, publiching_year, description, genre_id, image_id FROM `books` `t` ORDER BY id ASC.
+2015/11/20 05:21:46 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'publiching_year' in 'field list'. The SQL statement executed was: SELECT id, name, author, publiching_year, description, genre_id, image_id FROM `books` `t` ORDER BY id ASC' in Z:\home\orbit\www\framework\db\CDbCommand.php:541
+Stack trace:
+#0 Z:\home\orbit\www\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 Z:\home\orbit\www\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryAll()
+#2 Z:\home\orbit\www\framework\db\ar\CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#3 Z:\home\orbit\www\protected\controllers\BooksController.php(19): CActiveRecord->findAll(Object(CDbCriteria))
+#4 Z:\home\orbit\www\framework\web\actions\CInlineAction.php(49): BooksController->actionList()
+#5 Z:\home\orbit\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 Z:\home\orbit\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 Z:\home\orbit\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 Z:\home\orbit\www\framework\web\CWebApplication.php(282): CController->run('list')
+#9 Z:\home\orbit\www\framework\web\CWebApplication.php(141): CWebApplication->runController('books/list')
+#10 Z:\home\orbit\www\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 Z:\home\orbit\www\index.php(11): CApplication->run()
+#12 {main}
+REQUEST_URI=/books/list/
+---
+2015/11/20 05:22:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'publiching_year' in 'field list'. The SQL statement executed was: SELECT id, name, author, publiching_year, description, genre_id, image_id FROM `books` `t` ORDER BY id ASC.
+2015/11/20 05:22:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'publiching_year' in 'field list'. The SQL statement executed was: SELECT id, name, author, publiching_year, description, genre_id, image_id FROM `books` `t` ORDER BY id ASC' in Z:\home\orbit\www\framework\db\CDbCommand.php:541
+Stack trace:
+#0 Z:\home\orbit\www\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 Z:\home\orbit\www\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryAll()
+#2 Z:\home\orbit\www\framework\db\ar\CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#3 Z:\home\orbit\www\protected\controllers\BooksController.php(19): CActiveRecord->findAll(Object(CDbCriteria))
+#4 Z:\home\orbit\www\framework\web\actions\CInlineAction.php(49): BooksController->actionList()
+#5 Z:\home\orbit\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 Z:\home\orbit\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 Z:\home\orbit\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 Z:\home\orbit\www\framework\web\CWebApplication.php(282): CController->run('list')
+#9 Z:\home\orbit\www\framework\web\CWebApplication.php(141): CWebApplication->runController('books/list')
+#10 Z:\home\orbit\www\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 Z:\home\orbit\www\index.php(11): CApplication->run()
+#12 {main}
+REQUEST_URI=/books/list/
+---
+2015/11/20 07:54:22 [error] [exception.CException] exception 'CException' with message 'Property "IndexController.lineTitle" is not defined.' in Z:\home\orbit\www\framework\base\CComponent.php:173
+Stack trace:
+#0 Z:\home\orbit\www\protected\views\index\index.php(3): CComponent->__set('lineTitle', '???????????? ??...')
+#1 Z:\home\orbit\www\framework\web\CBaseController.php(126): require('Z:\home\orbit\w...')
+#2 Z:\home\orbit\www\framework\web\CBaseController.php(95): CBaseController->renderInternal('Z:\home\orbit\w...', Array, true)
+#3 Z:\home\orbit\www\framework\web\CController.php(869): CBaseController->renderFile('Z:\home\orbit\w...', Array, true)
+#4 Z:\home\orbit\www\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#5 Z:\home\orbit\www\protected\controllers\IndexController.php(9): CController->render('index', Array)
+#6 Z:\home\orbit\www\framework\web\actions\CInlineAction.php(49): IndexController->actionIndex()
+#7 Z:\home\orbit\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 Z:\home\orbit\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 Z:\home\orbit\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 Z:\home\orbit\www\framework\web\CWebApplication.php(282): CController->run('')
+#11 Z:\home\orbit\www\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#12 Z:\home\orbit\www\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 Z:\home\orbit\www\index.php(11): CApplication->run()
+#14 {main}
+REQUEST_URI=/
+---
+2015/11/20 07:54:50 [error] [exception.CException] exception 'CException' with message 'Property "IndexController.lineTitle" is not defined.' in Z:\home\orbit\www\framework\base\CComponent.php:173
+Stack trace:
+#0 Z:\home\orbit\www\protected\views\index\index.php(3): CComponent->__set('lineTitle', '???????????? ??...')
+#1 Z:\home\orbit\www\framework\web\CBaseController.php(126): require('Z:\home\orbit\w...')
+#2 Z:\home\orbit\www\framework\web\CBaseController.php(95): CBaseController->renderInternal('Z:\home\orbit\w...', Array, true)
+#3 Z:\home\orbit\www\framework\web\CController.php(869): CBaseController->renderFile('Z:\home\orbit\w...', Array, true)
+#4 Z:\home\orbit\www\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#5 Z:\home\orbit\www\protected\controllers\IndexController.php(9): CController->render('index', Array)
+#6 Z:\home\orbit\www\framework\web\actions\CInlineAction.php(49): IndexController->actionIndex()
+#7 Z:\home\orbit\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 Z:\home\orbit\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 Z:\home\orbit\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 Z:\home\orbit\www\framework\web\CWebApplication.php(282): CController->run('')
+#11 Z:\home\orbit\www\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#12 Z:\home\orbit\www\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 Z:\home\orbit\www\index.php(11): CApplication->run()
+#14 {main}
+REQUEST_URI=/
+---
