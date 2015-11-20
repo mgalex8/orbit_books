@@ -16,8 +16,15 @@ return array(
 	'import'=>array(
 		'application.models.*',
                 'application.models.forms.*',
-		'application.components.*',                                
+		'application.components.*',                  
 	),        
+        'modules'=>array(
+                'api'=>array(
+                    'class'   => 'application.modules.api.ApiModule',
+                    'name'    => 'Books API',
+                    'version' => '0.6',
+                )
+        ),
 
 	'defaultController'=>'index',
     
