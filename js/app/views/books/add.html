@@ -1,0 +1,65 @@
+<style>
+    input, select, textarea {        
+        border-radius:2px;
+        border:solid 1px #b0b0b0;
+        padding:5px;
+    }
+    input, select {width: 300px; }
+    textarea {
+        width:700px;
+        height:200px;        
+    }    
+    span.error{
+        color:red;
+    }
+</style>
+<form name="saveForm" class="form-horizontal" enctype="multipart/form-data">
+    <fieldset>
+        <div class="control-group">
+            <div class="controls">
+                <h3>{{["Добавление","Изменение"][(book.id>0)+0]}} записи</h3>
+            </div>
+        </div>    
+        <div class="control-group" ng-class="{error: saveForm.name.$invalid}">
+            <label class="control-label" for="name">Заголовок</label>
+            <div class="controls">
+                <input name="name" ng-model="book.name" required maxlength="150">
+                <span ng-show="invalidName" class="error">{{invalidName}}</span>
+            </div>
+        </div>
+        <div class="control-group" ng-class="{error: saveForm.author.$invalid}">
+            <label class="control-label" for="author">Автор</label>
+            <div class="controls">
+                <input name="author" ng-model="book.author" required maxlength="100">
+            </div>
+            <span ng-show="invalidAuthor" class="error">{{invalidAuthor}}</span>
+        </div>
+        <div class="control-group" ng-class="{error: saveForm.publishing_year.$invalid}">
+            <label class="control-label" for="answerer">Дата издания</label>
+            <div class="controls">
+                <input name="publishing_year" ng-model="book.publishing_year" required maxlength="4">
+            </div>
+            <span ng-show="invalidYear" class="error">{{invalidYear}}</span>
+        </div>
+        <div class="control-group" ng-class="{error: saveForm.genre_id.$invalid}">
+            <label class="control-label" for="category">Жанр</label>
+            <div class="controls">        
+                <select  name="genre_id" ng-model="book.genre_id">
+                    <option ng-repeat="genre in genres | filter:query | orderBy:id" value="{{genre.id}}">{{genre.name}}</option>
+                </select>
+            </div>
+        </div>    
+        <div class="control-group" ng-class="{error: saveForm.description.$invalid}">
+            <label class="control-label" for="text">Описание</label>
+            <div class="controls">
+                <textarea id="text" name="description" ng-model="book.description" required maxlength="2000"></textarea>
+                <span ng-show="invalidDescription" class="error">{{invalidDescription}}</span>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <input type="button" href="#/list" ng-click="save(book, saveForm)" ng-disabled="saveForm.$invalid||saveForm.$pristine" class="btn btn-success" value="Сохранить">
+            <a href="#/books/" class="btn btn-default">Отмена</a>
+        </div>
+    </fieldset>
+</form>

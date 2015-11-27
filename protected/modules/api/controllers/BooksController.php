@@ -24,7 +24,7 @@ class BooksController extends Controller
 
                 $data = array();                    
                 foreach ($books as $book) {
-                    $bookImageUrl = $book->image->url !== null ? $book->image->url : '/images/no-image.jpg';
+                    $bookImageUrl = !empty($book->image->url) ? $book->image->url : '/images/no-image.jpg';
 
                     $item = array(
                         'id' => $book->id,
@@ -37,7 +37,7 @@ class BooksController extends Controller
                     );
                     $data[] = $item;
                 }
-                echo json_encode($data);
+                echo CJSON::encode($data);
         }
         
         
@@ -45,7 +45,7 @@ class BooksController extends Controller
         {   
                 if ($book = Book::model()->findByPk($id)) 
                 {           
-                    $bookImageUrl = $book->image->url !== null ? $book->image->url : '/images/no-image.jpg';
+                    $bookImageUrl = !empty($book->image->url) ? $book->image->url : '/images/no-image.jpg';
                     $json = array(                        
                         'id' => $book->id,
                         'name' => $book->name,
@@ -54,7 +54,7 @@ class BooksController extends Controller
                         'description' => $book->description,
                         'genre_id' => $book->genre_id,
                         'genre' => $book->genre->name,
-                        'image_id' => $book->image_id,
+                        //'image_id' => $book->image_id,
                         'image' => $bookImageUrl,                   
                     );
                 }
@@ -64,30 +64,36 @@ class BooksController extends Controller
                         'error' => 'Not found id: '.$id,
                     );                
                 }            
-                echo json_encode($json);
+                echo CJSON::encode($json);
         }
         
         
         public function actionAdd() 
         {   
+                $data = CJSON::decode(file_get_contents('php://input'));
                 $book = new Book;
-                $json = $this->addedit($book);
-                echo json_encode($json);
+                $json = $this->addedit($book, $data);
+                echo CJSON::encode($json);
         }
         
         
         public function actionEdit($id) 
-        {                       
-                $book = Book::model()->findByPk($id);
-                $json = $this->addedit($book);
-                echo json_encode($json);
+        {              
+                $data = CJSON::decode(file_get_contents('php://input'));
+                if ($book = Book::model()->findByPk($id)) {
+                    $json = $this->addedit($book, $data);
+                }
+                else {
+                    $json['success'] = 0;
+                    $json['error'] = 'Not found id: '.$id;
+                }
+                echo CJSON::encode($json);
         }
         
         
         public function actionDelete($id) 
         {   
-                if ($book = Book::model()->findByPk($id)) {
-                    //Book::model()->deleteByPk($id);
+                if ($book = Book::model()->findByPk($id)) {                    
                     $book->delete();
                     $json = array(
                         'success' => 1,
@@ -99,15 +105,15 @@ class BooksController extends Controller
                         'error' => 'Not found id: '.$id,
                     );
                 }
-                return json_encode($json);
+                echo CJSON::encode($json);
         }   
         
         
-        protected function addedit($book) 
-        {       
-                $data = CJSON::decode(file_get_contents('php://input'));
-                
-                if ($book) {
+        protected function addedit($book, $data) 
+        {            
+                $json = array();                
+                if ($book) {                
+                    // upload image
                     $upload = FileUpload::upload('image', 'images', 512000);
                     if (empty($upload['error'])) 
                     {
@@ -124,23 +130,30 @@ class BooksController extends Controller
                     //save attributes
                     $book->attributes = $data;
                     if (!empty($bookImageId)) {
-                        $book->image_id = $bookImageId;
+                        $book->image_id = $bookImageId;                        
                     }
                     
-                    if ($book->save()) {
-                        $json['success'] = 1;  
-                        $json['book'] = $data;
-                        $json['book']['id'] = $book->id;
+                                        
+                    if ($book->validate()) {                        
+                        if ($book->save()) {
+                            $json['success'] = 1;
+                            $json['book'] = $data;
+                            // additional
+                            $json['book']['id'] = $book->id;
+                            $json['book']['genre'] = $book->genre->name;
+                            $json['book']['image'] = !empty($book->image->url) ? $book->image->url : '/images/no-image.jpg';
+                        }
+                        else {
+                            $json['success'] = 0;  
+                            $json['error'] = 'Do not save';
+                        }                        
                     }
                     else {
-                        $json['success'] = 0;  
-                        $json['error'] = 'Do not save';  
-                    }
-                }    
-                else {
-                    $json['success'] = 0;
-                    $json['error'] = 'Not found id: '.$id;
-                }
+                        $json['success'] = 0;
+                        $json['error'] = 'Do not save';
+                        $json['validation_errors'] = $book->errors;
+                    }                    
+                }                   
                 return $json;
         }
         
