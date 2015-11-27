@@ -22,38 +22,40 @@
 
 /protected/config/ - файлы конфигурации
 
-/protected/api/ - модуль API
+/protected/modules/api/ - модуль API
 
 ###Frontend: (AngularJS 1.5 beta)
 
 /js/app/ - файлы приложения
 
-/partials/ - html шаблоны
+/js/app/views/ - html шаблоны
 
 ## API
 
 ###Books
 
-url: /api/books/list
+Список книг
 
-url: /api/books/view/<:id>
+GET /api/books/
 
-url: /api/books/add
+Получить запись <id>
 
-url: /api/books/edit/<:id>
+GET /api/books/<:id>
 
-url: /api/books/delete/<:id>
+Добавить запись
+
+POST /api/books/
+
+Редактировать запись <id>
+
+PUT /api/books/<:id>
+
+Удалить запись
+
+DELETE /api/books/delete/<:id>
 
 ###Genres
 
-url: /api/genres/list
-
-url: /api/genres/view/<:id>
-
-url: /api/genres/add
-
-url: /api/genres/edit/<:id>
-
-url: /api/genres/delete/<:id>
+GET /api/genres/
 
 <:id> - id записи в БД
