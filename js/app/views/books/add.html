@@ -13,7 +13,7 @@
         color:red;
     }
 </style>
-<form name="saveForm" class="form-horizontal" enctype="multipart/form-data">
+<form name="saveForm" class="form-horizontal" enctype="multipart/form-data" action="/api/books/add/">
     <fieldset>
         <div class="control-group">
             <div class="controls">
@@ -23,32 +23,49 @@
         <div class="control-group" ng-class="{error: saveForm.name.$invalid}">
             <label class="control-label" for="name">Заголовок</label>
             <div class="controls">
-                <input name="name" ng-model="book.name" required maxlength="150">
+                <input id="name" name="name" ng-model="book.name" required maxlength="150">
                 <span ng-show="invalidName" class="error">{{invalidName}}</span>
             </div>
         </div>
         <div class="control-group" ng-class="{error: saveForm.author.$invalid}">
             <label class="control-label" for="author">Автор</label>
             <div class="controls">
-                <input name="author" ng-model="book.author" required maxlength="100">
+                <input id="author" name="author" ng-model="book.author" required maxlength="100">
             </div>
             <span ng-show="invalidAuthor" class="error">{{invalidAuthor}}</span>
         </div>
         <div class="control-group" ng-class="{error: saveForm.publishing_year.$invalid}">
-            <label class="control-label" for="answerer">Дата издания</label>
+            <label class="control-label" for="publishing_year">Дата издания</label>
             <div class="controls">
-                <input name="publishing_year" ng-model="book.publishing_year" required maxlength="4">
+                <input id="publishing_year" name="publishing_year" ng-model="book.publishing_year" required maxlength="4">
             </div>
             <span ng-show="invalidYear" class="error">{{invalidYear}}</span>
         </div>
         <div class="control-group" ng-class="{error: saveForm.genre_id.$invalid}">
-            <label class="control-label" for="category">Жанр</label>
+            <label class="control-label" for="genre">Жанр</label>
             <div class="controls">        
-                <select  name="genre_id" ng-model="book.genre_id">
+                <select id="genre" name="genre_id" ng-model="book.genre_id">
                     <option ng-repeat="genre in genres | filter:query | orderBy:id" value="{{genre.id}}">{{genre.name}}</option>
                 </select>
             </div>
-        </div>    
+        </div> 
+        <!--
+        <div class="control-group" ng-class="{error: saveForm.file.$invalid}">
+            <label class="control-label" for="image">Изображение</label>
+            <div class="controls">                
+                <input name="file" type="file" ng-click="changeFile()">
+                <input type="button" ng-click="upload()" ng-disabled="uploadClick" class="btn btn-info" value="Загрузить файл">                
+            </div>            
+        </div>
+        -->
+        
+        <div class="control-group" ng-class="{error: saveForm.file2.$invalid}">
+            <label class="control-label" for="image">Изображение</label>
+            <div class="controls">                
+                <input data-upload-Directive type="file" name="file" id="file" data-image-id="{{book.image_id}}">               
+            </div>            
+        </div>
+        
         <div class="control-group" ng-class="{error: saveForm.description.$invalid}">
             <label class="control-label" for="text">Описание</label>
             <div class="controls">
@@ -56,9 +73,10 @@
                 <span ng-show="invalidDescription" class="error">{{invalidDescription}}</span>
             </div>
         </div>
+        <input type="hidden" 
 
         <div class="form-actions">
-            <input type="button" href="#/list" ng-click="save(book, saveForm)" ng-disabled="saveForm.$invalid||saveForm.$pristine" class="btn btn-success" value="Сохранить">
+            <input type="button" ng-click="save(book, saveForm)" ng-disabled="saveForm.$invalid||saveForm.$pristine" class="btn btn-success" value="Сохранить">            
             <a href="#/books/" class="btn btn-default">Отмена</a>
         </div>
     </fieldset>

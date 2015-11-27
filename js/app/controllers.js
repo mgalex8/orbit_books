@@ -6,6 +6,8 @@ var booksControllers = angular.module('booksControllers', []);
 
 booksControllers.controller('BookListCtrl', ['$scope', '$rootScope', '$location', 'Books',
     function($scope, $rootScope, $location, Books) {
+        $scope.currentPage = 1;
+        
         $scope.books = Books.getAll();
         
         $rootScope.$on('books:updated', function() {
@@ -34,21 +36,32 @@ booksControllers.controller('BookViewCtrl', ['$scope', '$routeParams', '$locatio
 
 booksControllers.controller('BookAddEditCtrl', ['$scope', '$routeParams', '$http', '$location', 'Books', 'Genres',
     function ($scope, $routeParams, $http, $location, Books, Genres) {
-        if ($routeParams.bookId > 0) {
-            console.log('edit')        
+        Books.emptyUploadImage();
+        
+        if ($routeParams.bookId > 0) {                  
             Books.get($routeParams.bookId).then(function(response){
                 $scope.book = response.data;
             });
         }
                 
         $scope.genres = Genres.query(); 
+        $scope.uploadClick = true;
+        
+        $scope.changeFile = function() {
+            $scope.uploadClick = false;
+        }
+        
+        $scope.upload = function() {
+            var img = document.getElementById('file').files[0];
+            Books.upload(img);
+        }
         
         $scope.save = function (book, saveForm){                                   
             $scope.invalidName = '';
             $scope.invalidAuthor = '';
             $scope.invalidDescription = '';
             $scope.invalidYear = '';
-                        
+                                    
             var valid = true;
             if (saveForm.$valid){
                 if (book.name.length > 150) {
@@ -67,12 +80,28 @@ booksControllers.controller('BookAddEditCtrl', ['$scope', '$routeParams', '$http
                     valid = false;
                     $scope.invalidYear = 'Введите число от 0 до 9999';
                 }
+                /*
+                var image = Books.getLastUploadImage();
+                console.log(image,'image');
+                if (image !== undefined) {
+                    book.image_id = image.id;
+                }                
+                console.log(book, 'saveBook');
+                */
+               
+               var elem = document.getElementById('file');
+               console.log(elem.getAttribute('data-image-id'));
+                
                 //save
                 if (valid) {
                     Books.save(book);
                     $location.path('/books');                
                 }
             }            
+        };
+        
+        $scope.complete = function (content){
+            console.log(content);
         };
     }            
 ]);

@@ -12,14 +12,7 @@ class BooksController extends Controller
                 $criteria = new CDbCriteria;            
                 $criteria->select = 'id, name, author, publishing_year, description, genre_id, image_id';                        
                 $criteria->order = 'id ASC';
-
-                $itemPerPage = $_POST['itemPerPage'];
-                if (!empty($itemPerPage)) {            
-                    $count = Book::model()->count($criteria);            
-                    $pages = new CPagination($count);            
-                    $pages->pageSize = $itemPerPage;
-                    $pages->applyLimit($criteria);
-                }
+                
                 $books = Book::model()->findAll($criteria);
 
                 $data = array();                    
@@ -54,8 +47,8 @@ class BooksController extends Controller
                         'description' => $book->description,
                         'genre_id' => $book->genre_id,
                         'genre' => $book->genre->name,
-                        //'image_id' => $book->image_id,
-                        'image' => $bookImageUrl,                   
+                        'image_id' => $book->image_id,
+                        'image' => $bookImageUrl,                         
                     );
                 }
                 else {
@@ -79,14 +72,14 @@ class BooksController extends Controller
         
         public function actionEdit($id) 
         {              
-                $data = CJSON::decode(file_get_contents('php://input'));
+                $data = CJSON::decode(file_get_contents('php://input'));                
                 if ($book = Book::model()->findByPk($id)) {
                     $json = $this->addedit($book, $data);
                 }
                 else {
                     $json['success'] = 0;
                     $json['error'] = 'Not found id: '.$id;
-                }
+                }                
                 echo CJSON::encode($json);
         }
         
@@ -111,7 +104,8 @@ class BooksController extends Controller
         
         protected function addedit($book, $data) 
         {            
-                $json = array();                
+                $json = array();  
+                $json['FILES'] = $_FILES;
                 if ($book) {                
                     // upload image
                     $upload = FileUpload::upload('image', 'images', 512000);
@@ -132,8 +126,7 @@ class BooksController extends Controller
                     if (!empty($bookImageId)) {
                         $book->image_id = $bookImageId;                        
                     }
-                    
-                                        
+                                                            
                     if ($book->validate()) {                        
                         if ($book->save()) {
                             $json['success'] = 1;

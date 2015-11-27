@@ -9,7 +9,7 @@ booksServices.factory('Books', ['$http', '$rootScope', function($http, $rootScop
 
     // books array
     
-    var books = [];
+    var books = [];    
 
     function getBooks() {
         $http({method: 'GET', url: 'api/books'})
@@ -27,6 +27,8 @@ booksServices.factory('Books', ['$http', '$rootScope', function($http, $rootScop
     // factory methods
     
     var service = {};
+    
+    service.lastUploadImage;
 
     service.getAll = function() {        
         return books;
@@ -36,7 +38,11 @@ booksServices.factory('Books', ['$http', '$rootScope', function($http, $rootScop
         return $http.get('api/books/'+id);        
     }
     
-    service.save = function(book) {
+    service.save = function(book) {        
+        if (service.lastUploadImage !== undefined) {
+            book.image_id = service.lastUploadImage.id;
+        }
+        
         if (undefined !== book.id && parseInt(book.id) > 0) {
             service.update(book);
         }
@@ -102,6 +108,47 @@ booksServices.factory('Books', ['$http', '$rootScope', function($http, $rootScop
                 });
         }
     }
+    
+    service.upload = function(element) {        
+        if (element.type == 'image/jpeg' || element.type == 'image/gif' || element.type == 'image/png') 
+        {                
+            var image_data = {
+                name: element.name,
+                size: element.size,
+                type: element.type,                
+            };            
+            
+            var reader = new FileReader();
+            reader.onloadend = function(e){               
+                image_data.data = e.target.result;
+                console.log(image_data, 'image_data');
+                var fd = new FormData();
+                fd.append('data', image_data.data);
+                fd.append('name', image_data.name);
+                fd.append('size', image_data.size);
+                fd.append('type', image_data.type);
+                console.log(fd);
+                
+                return $http({url: 'api/images', method: "POST", data: fd})
+                    .then(function (response) {                        
+                        service.lastUploadImage = response.data;
+                        console.log(service.lastUploadImage, 'service.lastUploadImage');
+                    });
+            };
+            reader.readAsBinaryString(element);                      
+        }
+        else {
+            return false;
+        }
+    }
+    
+    service.getLastUploadImage = function() {
+        return service.lastUploadImage;
+    }
+    
+    service.emptyUploadImage = function() {
+        service.lastUploadImage = undefined;
+    }
 
     return service;
 }]);
@@ -114,4 +161,17 @@ booksServices.factory('Genres', ['$resource',
         });
     }
 ]);
+
+booksServices.factory('httpUploadFactory', function ($http) {
+    return function (file, data, callback) {
+        $http({
+            url: file,
+            method: "POST",
+            data: data,
+            headers: {'Content-Type': undefined}
+        }).success(function (response) {
+            callback(response);
+        });
+    };
+});
 
