@@ -3,12 +3,12 @@
 class BooksController extends Controller
 {	        
         
-        public function actionIndex() {
-            echo 'test';
+        public function actionIndex() 
+        {       
+               echo 'test'; 
         }
         
-        public function actionList() 
-        {    
+        public function actionList() {
                 $criteria = new CDbCriteria;            
                 $criteria->select = 'id, name, author, publishing_year, description, genre_id, image_id';                        
                 $criteria->order = 'id ASC';
@@ -22,10 +22,10 @@ class BooksController extends Controller
                 }
                 $books = Book::model()->findAll($criteria);
 
-                $items = array();
+                $data = array();                    
                 foreach ($books as $book) {
                     $bookImageUrl = $book->image->url !== null ? $book->image->url : '/images/no-image.jpg';
-                    
+
                     $item = array(
                         'id' => $book->id,
                         'name' => $book->name,
@@ -35,9 +35,9 @@ class BooksController extends Controller
                         'genre' => $book->genre->name,
                         'image' => $bookImageUrl,
                     );
-                    $items[] = $item;
+                    $data[] = $item;
                 }
-                echo json_encode($items);
+                echo json_encode($data);
         }
         
         
@@ -52,12 +52,15 @@ class BooksController extends Controller
                         'author' => $book->author,
                         'publishing_year' => $book->publishing_year,
                         'description' => $book->description,
+                        'genre_id' => $book->genre_id,
                         'genre' => $book->genre->name,
+                        'image_id' => $book->image_id,
                         'image' => $bookImageUrl,                   
                     );
                 }
                 else {
-                    $json = array(                        
+                    $json = array(   
+                        'success' => 0,
                         'error' => 'Not found id: '.$id,
                     );                
                 }            
@@ -74,17 +77,9 @@ class BooksController extends Controller
         
         
         public function actionEdit($id) 
-        {   
-                if ($book = Book::model()->findByPk($id)) 
-                {                
-                    $json = $this->addedit($book);
-                }
-                else {
-                    $json = array(
-                        'success' => 0,
-                        'error' => 'Not found id: '.$id,
-                    );                
-                }            
+        {                       
+                $book = Book::model()->findByPk($id);
+                $json = $this->addedit($book);
                 echo json_encode($json);
         }
         
@@ -109,54 +104,42 @@ class BooksController extends Controller
         
         
         protected function addedit($book) 
-        {
-                $bookName = $_POST['name'];
-                $bookAuthor = $_POST['author'];
-                $bookPublichingYear = $_POST['publiching_year'];
-                $bookDescription = $_POST['description'];
-                $bookGenreId = $_POST['genre_id'];            
-
-                // FileUpload - user component 
-                // base path - *.components
-                $upload = FileUpload::upload('image', 'images', 512000);
-                if (empty($upload['error'])) 
-                {
-                    // Save Image
-                    if (!empty($book->id)) {
-                        $image = Image::model()->findByPk($book->image_id);
-                    }
-                    else {
-                        $image = new Image;
-                    }
-                    $image->url = $upload['url'];
-                    $image->size = $upload['size'];
-                    $image->type = $upload['type'];
-                    $image->original_name = $upload['name'];
-                    $image->save();       
-
-                    $bookImageId = $image->id;
-
-                    // Save Book
-                    if ($book->genre->findByPk($bookGenreId)) 
+        {       
+                $data = CJSON::decode(file_get_contents('php://input'));
+                
+                if ($book) {
+                    $upload = FileUpload::upload('image', 'images', 512000);
+                    if (empty($upload['error'])) 
                     {
-                        $book->name = $bookName;
-                        $book->author = $bookAuthor;
-                        $book->publiching_year = $bookPublichingYear;
-                        $book->description = $bookDescription;                
-                        $book->genre_id = $bookGenreId;
+                        $image = new Image;                        
+                        $image->url = $upload['url'];
+                        $image->size = $upload['size'];
+                        $image->type = $upload['type'];
+                        $image->original_name = $upload['name'];
+                        if ($image->save()) {
+                            $bookImageId = $image->id;                  
+                        }
+                    }                    
+                    
+                    //save attributes
+                    $book->attributes = $data;
+                    if (!empty($bookImageId)) {
                         $book->image_id = $bookImageId;
                     }
-                    $book->save();
-
-                    $json = array(
-                        'success' => 1,
-                    );
-                }
+                    
+                    if ($book->save()) {
+                        $json['success'] = 1;  
+                        $json['book'] = $data;
+                        $json['book']['id'] = $book->id;
+                    }
+                    else {
+                        $json['success'] = 0;  
+                        $json['error'] = 'Do not save';  
+                    }
+                }    
                 else {
-                    $json = array(
-                        'success' => 1,
-                        'error' => $upload['error'],
-                    );
+                    $json['success'] = 0;
+                    $json['error'] = 'Not found id: '.$id;
                 }
                 return $json;
         }

@@ -4,34 +4,52 @@
 
 var booksControllers = angular.module('booksControllers', []);
 
-booksControllers.controller('BookListCtrl', ['$scope', 'Book',
-    function($scope, Book) {
-        $scope.books = Book.query();
-        $scope.orderProp = 'id';
+booksControllers.controller('BookListCtrl', ['$scope', '$rootScope', '$location', 'Books',
+    function($scope, $rootScope, $location, Books) {
+        $scope.books = Books.getAll();
+        
+        $rootScope.$on('books:updated', function() {
+            $scope.books = Books.getAll();
+        });
+        
+        $scope.confirmDelete = function(book) {            
+            Books.delete(book);
+            $location.path('#/books/');
+        }
     }
 ]);
 
-booksControllers.controller('BookViewCtrl', ['$scope', '$routeParams', 'Book',
-    function($scope, $routeParams, Book) {
-        $scope.book = Book.get({bookId: $routeParams.bookId}, function(book) {});    
+booksControllers.controller('BookViewCtrl', ['$scope', '$routeParams', '$location', 'Books',    
+    function($scope, $routeParams, $location, Books) {        
+        Books.get($routeParams.bookId).then(function(book){
+            $scope.book = book.data;
+        });
+        
+        $scope.confirmDelete = function(book) {            
+            Books.delete(book);
+            $location.path('#/books/');
+        }
     }
 ]);
 
-
-booksControllers.controller('BookAddCtrl', ['$scope', '$http', 'Book', 'Genres',
-    function ($scope, $http, Book, Genres) {
-        $scope.book = {};
-        $scope.genres = Genres.query();        
-
-        $scope.save = function (book, saveForm){
-            if (saveForm.$valid){
-
-                $http.post("/api/books/add", book).success(function (resp) {
-                    if (resp.error.length == 0) {
-                        $location.path('/books'); 
-                    }
-                });
-            }
+booksControllers.controller('BookAddEditCtrl', ['$scope', '$routeParams', '$http', '$location', 'Books', 'Genres',
+    function ($scope, $routeParams, $http, $location, Books, Genres) {
+        if ($routeParams.bookId > 0) {
+            console.log('edit')
+        
+            Books.get($routeParams.bookId).then(function(book){
+                $scope.book = book.data;
+            });
+        }
+        
+        $scope.genres = Genres.query(); 
+        //$scope.selectedGenre = $scope.genres[$scope.book.id];
+        
+        $scope.save = function (book, saveForm){                       
+            if (saveForm.$valid){                
+                Books.save(book);
+                $location.path('/books');                
+            }            
         };
     }            
 ]);

@@ -29,7 +29,8 @@ class FileUpload {
             8 => 'A PHP extension stopped the file upload.',
         );
         
-        if ($_FILES[$fieldName]['error'] === UPLOAD_ERR_OK) 
+        $error = $_FILES[$fieldName]['error'];
+        if ($error === 0) 
         {
             $name = $_FILES[$fieldName]['name'];
             $size = $_FILES[$fieldName]['size'];
@@ -64,6 +65,7 @@ class FileUpload {
         else {
             return array(
                 'success' => 0,
+                'err' => $error,
                 'error' => $phpFileUploadErrors[$error],
             );
         }

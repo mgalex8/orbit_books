@@ -24,12 +24,16 @@ booksApp.config(['$routeProvider',
       }).              
       when('/books/add', {
         templateUrl: 'partials/books/add.html',
-        controller: 'BookAddEditCtrl'
+        controller: 'BookAddCtrl'
       }).
       when('/books/edit/:bookId', {
         templateUrl: 'partials/books/add.html',
-        controller: 'BookAddEditCtrl'
-      }).      
+        controller: 'BookEditCtrl'
+      }).
+      when('/books/delete/:bookId', {
+        //templateUrl: 'partials/delete.html',
+        controller: 'BookDeleteCtrl'
+      }).
       
       otherwise({
         redirectTo: '/books'

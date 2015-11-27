@@ -3,11 +3,15 @@
 return array(	
         //modules
         'api/version'                                   => 'api/index/version',
-        '<module:\w+>/<controller:\w+>/list'            => '<module>/<controller>/list',
-        '<module:\w+>/<controller:\w+>/add'             => '<module>/<controller>/add',
-        '<module:\w+>/<controller:\w+>/edit/<id:\S+>'   => '<module>/<controller>/edit',
-        '<module:\w+>/<controller:\w+>/view/<id:\S+>'   => '<module>/<controller>/view',
-        '<module:\w+>/<controller:\w+>/delete/<id:\S+>' => '<module>/<controller>/delete',        
+    
+        //Rest API
+        array('api/books/list', 'pattern'=>'api/books', 'verb'=>'GET'),
+        array('api/books/view', 'pattern'=>'api/books/<id:\d+>', 'verb'=>'GET'),
+        array('api/books/edit', 'pattern'=>'api/books/<id:\d+>', 'verb'=>'PUT'),
+        array('api/books/delete', 'pattern'=>'api/books/<id:\d+>', 'verb'=>'DELETE'),
+        array('api/books/add', 'pattern'=>'api/books', 'verb'=>'POST'),        
+    
+        array('api/genres/list', 'pattern'=>'api/genres', 'verb'=>'GET'),
         
         //application
         '<controller:\w+>/<action:\w+>/<id:\S+>'        => '<controller>/<action>',

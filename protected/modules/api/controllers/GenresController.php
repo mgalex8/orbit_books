@@ -19,12 +19,7 @@ class GenresController extends Controller
                     );
                     $items[] = $item;
                 }
-                
-                $json = array(
-                    'success' => 1,
-                    'genres' => $items,
-                );
-                echo json_encode($json);
+                echo json_encode($items);
         }
         
         

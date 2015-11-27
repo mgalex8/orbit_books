@@ -12,4 +12,10 @@
         <br />
         <p><strong>Описание:</strong> {{book.description}}</p>
     </td>
+    <td>
+        <a href="#/books/edit/{{book.id}}"><button class="btn btn-default">Редактировать</button></a>
+        <br><br>        
+        <a href="" ng-click="confirmDelete(book)"><button class="btn btn-danger">Удалить</button></a>
+    </td>
 </tr></table>
+<a href="#/books/"><button class="btn btn-штащ">Назад</button></a>
